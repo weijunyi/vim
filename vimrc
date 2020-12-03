@@ -46,6 +46,8 @@ Plug 'jstemmer/gotags'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!']  }
+Plug 'rhysd/vim-clang-format'
+Plug 'Chiel92/vim-autoformat'
 
 call plug#end()            " required
 
@@ -63,7 +65,7 @@ set expandtab
 set autoindent
 set cindent
 set nu
-set colorcolumn=100
+set colorcolumn=80
 " set foldmethod=indent
 
 let Tlist_Show_One_File = 1
@@ -193,3 +195,7 @@ let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 if !isdirectory(s:vim_tags)
    silent! call mkdir(s:vim_tags, 'p')
 endif
+
+" 保存时自动格式化 c++ c 代码
+autocmd FileType c,cpp,h,hpp autocmd BufWritePre * :Autoformat
+
