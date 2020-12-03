@@ -1,6 +1,9 @@
 set nocompatible
 filetype off
 
+" install plugged
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
 
 " The following are examples of different formats supported.
@@ -37,11 +40,12 @@ Plug 'scrooloose/nerdcommenter'
 "Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 Plug 'vim-scripts/Mark--Karkat'
 Plug 'jstemmer/gotags'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!']  }
 
 call plug#end()            " required
 
